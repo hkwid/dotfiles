@@ -1,0 +1,45 @@
+[user]
+	email = 
+	name = 
+# set if you want to switch the account by folder
+# [includeIf "gitdir:~/Develop/path/to/folder"]
+# 	path = ~/.gitconfig_sub
+[core]
+	excludesfile = ~/.gitignore
+	ignorecase = false
+	autocrlf = input
+[color]
+	ui = always
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	today = "log --decorate --oneline --graph --since=midnight"
+	yesterday = "log --decorate --oneline --graph --since=yesterday.midnight"
+	log1 = !git log --graph --date=relative --date-order --format=format:'%C(yellow)%h %C(bold green)[%ar] %C(reset)%s %C(red)%d %C(reset)'
+
+	s       = "status"
+	b       = "branch"
+	ba      = "branch --all"
+	a       = "add"
+	c       = "commit"
+	co      = "checkout"
+	cp      = "cherry-pick"
+	amend   = "commit --amend"
+	st      = "stash"
+	pop     = "stash pop"
+	stage   = "add"
+	unstage = "reset @"
+[credential]
+	helper = osxkeychain
+[init]
+	templateDir = ~/.git-templates/git-secrets
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	autoSetupRemote = true
+[safe]
+	directory = *
